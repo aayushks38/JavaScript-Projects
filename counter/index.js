@@ -6,6 +6,7 @@ const themeToggle = document.getElementById("themeToggle");
 
 window.focus();
 
+// Load count from localStorage
 let count = localStorage.getItem("count")
   ? Number(localStorage.getItem("count"))
   : 0;
@@ -19,7 +20,6 @@ if (localStorage.getItem("theme") === "dark") {
   themeToggle.textContent = "🌙";
 }
 
-// Counter animation
 function animateCounter() {
   countertable.classList.add("bump");
   setTimeout(() => {
@@ -33,6 +33,7 @@ function updateCounter() {
   localStorage.setItem("count", count);
 }
 
+// Counter functions
 function increment() {
   count++;
   updateCounter();
@@ -55,25 +56,20 @@ resetbtn.addEventListener("click", reset);
 
 // Keyboard shortcuts
 window.addEventListener("keydown", (e) => {
-window.addEventListener("keydown", (e) => {
   if (e.key === "ArrowUp") {
     e.preventDefault();
     increment();
-  } 
-  else if (e.key === "ArrowDown") {
+  } else if (e.key === "ArrowDown") {
     e.preventDefault();
     decrement();
-  } 
-  else if (e.key === "r" || e.key === "R") {
+  } else if (e.key === "r" || e.key === "R") {
     reset();
   }
 });
-;
 
 // Dark mode toggle
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark");
-
   const isDark = document.body.classList.contains("dark");
   themeToggle.textContent = isDark ? "☀️" : "🌙";
   localStorage.setItem("theme", isDark ? "dark" : "light");
