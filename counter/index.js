@@ -4,6 +4,8 @@ const resetbtn = document.getElementById("resetbtn");
 const countertable = document.getElementById("countertable");
 const themeToggle = document.getElementById("themeToggle");
 
+window.focus();
+
 let count = localStorage.getItem("count")
   ? Number(localStorage.getItem("count"))
   : 0;
@@ -52,15 +54,21 @@ decrementbtn.addEventListener("click", decrement);
 resetbtn.addEventListener("click", reset);
 
 // Keyboard shortcuts
-document.addEventListener("keydown", (e) => {
+window.addEventListener("keydown", (e) => {
+window.addEventListener("keydown", (e) => {
   if (e.key === "ArrowUp") {
+    e.preventDefault();
     increment();
-  } else if (e.key === "ArrowDown") {
+  } 
+  else if (e.key === "ArrowDown") {
+    e.preventDefault();
     decrement();
-  } else if (e.key === "r" || e.key === "R") {
+  } 
+  else if (e.key === "r" || e.key === "R") {
     reset();
   }
 });
+;
 
 // Dark mode toggle
 themeToggle.addEventListener("click", () => {
