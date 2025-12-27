@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  color: white;
+
+  background: linear-gradient(
+    270deg,
+    #4f46e5,
+    #2563eb,
+    #0ea5e9,
+    #9333ea,
+    #4f46e5
+  );
+  background-size: 800% 800%;
+  animation: bgMove 10s ease infinite;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+h1 {
+  margin: 30px 0;
+  font-size: 44px;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Dice shake */
+@keyframes diceShake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(-15deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.shake {
+  animation: diceShake 0.5s ease;
+}
+
+.board {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.track {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 18px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+}
+
+.cell {
+  width: 68px;
+  height: 68px;
+  border: 3px solid #333;
+  background: white;
+  border-radius: 10px;
+  font-size: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: transform 0.25s ease;
+}
+
+/* Token slide */
+.slide {
+  animation: slideMove 0.35s ease;
+}
+
+@keyframes slideMove {
+  from { transform: scale(0.8); }
+  to { transform: scale(1); }
+}
+
+/* HOME CELL */
+.home {
+  background: linear-gradient(135deg, #dcfce7, #86efac);
+  border: 4px solid #15803d;
+  box-shadow: 0 0 20px rgba(34,197,94,0.6);
+}
+
+button {
+  font-size: 22px;
+  padding: 14px 36px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #0f766e, #22c1c3);
+  color: white;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+
+  transition: transform 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+#diceResult {
+  font-size: 26px;
+  margin-top: 20px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
